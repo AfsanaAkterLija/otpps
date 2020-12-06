@@ -7,8 +7,8 @@
 <div class="container"  >
     <div class="row text-center">
         <div  class="col-md-12" >
-            <span class="head-main" >Travel Template</span>
-            <h3 class="head-last col-md-4 col-md-offset-4  col-sm-6 col-sm-offset-3">Lorem ipsum dolor sit ametLorem</h3>
+            <span class="head-main" >Tour Planner Platform</span>
+            <h3 class="head-last col-md-4 col-md-offset-4  col-sm-6 col-sm-offset-3"></h3>
      
              
         </div>
