@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//backend//
 Route::get('/template','backend\TemplateController@index')->name('dashboard');
 Route::get('/charts','backend\TemplateController@charts')->name('dashboard.charts');
 Route::get('/form','frontend\FormController@form')->name('dashboard.form');
@@ -24,5 +24,10 @@ Route::post('/form/submit','frontend\FormController@submit')->name('form.submit'
 Route::get('/form/table','frontend\FormController@table')->name('form.table');
 
 
+Route::get('/plan','frontend\FormController@plan')->name('plan.insertplan');
+Route::post('/plan/submit','frontend\FormController@plansubmit')->name('plan.submit');
+Route::get('/plan/list','frontend\FormController@planlist')->name('plan.list');
 
+
+//frontend
 Route::get('/home','frontend\TemplateController@index');

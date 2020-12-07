@@ -71,8 +71,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Plan</h6>
-                        <a class="collapse-item" href="Plan-color.html">Insert Plan</a>
-                        <a class="collapse-item" href="Plan-color.html">Plan List</a>
+                        <a class="collapse-item" href="{{route('plan.insertplan')}}">>Insert Plan</a>
+                        <a class="collapse-item" href="{{route('plan.list')}}">Plan List</a>
                         <a class="collapse-item" href="Plan-color.html">Feedback</a>
                         
                     </div>
@@ -98,7 +98,7 @@
                 </div>
             </li>
 
-            <!-- Nav Item -Location Collapse Menu -->
+<!-- Nav Item -Location Collapse Menu -->
 <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLocation"
                     aria-expanded="true" aria-controls="collapseLocation">
