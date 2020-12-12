@@ -38,6 +38,25 @@ class FormController extends Controller
         return view('backend.partials.tables',compact('list'));
     }
 
+    public function cotourist_delete($id)
+    {
+        $cotourist=Cotourist::find($id);
+        if(!empty($cotourist))
+        {
+            $cotourist->delete();
+            $message="cotourist deleted Successfully";
+        }else{
+            $message="No data found.";
+        }
+         return redirect()->back()->with('message',$message);
+    }
+
+    public function cotourist_view($id)
+    {
+        $cotourist=Cotourist::find($id);
+            return view('backend.partials.view_cotourist_info',compact('cotourist'));
+    }
+
 
     public function plan()
     {

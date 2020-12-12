@@ -17,7 +17,11 @@ class CreateCotouristsTable extends Migration
             $table->id();
             $table->string('name',100);
             $table->string('email');
-            $table->string('password');
+            $table->string('phone_number');
+            $table->string('n_id');
+            $table->string('role');
+            $table->string('status');
+            $table->string('address');
             $table->timestamps();
         });
     }
