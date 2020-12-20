@@ -11,4 +11,6 @@ class TemplateController extends Controller
     {
         return view('frontend.home');
     }
+
+
 }

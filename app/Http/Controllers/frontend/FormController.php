@@ -26,7 +26,12 @@ class FormController extends Controller
         Cotourist::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' =>$request->input('password') 
+            'password' =>$request->input('password'),
+            'phone_number' =>$request->input('phone_number'),
+            'n_id' =>$request->input('n_id'),
+            'role' =>$request->input('role'),
+            'status' =>$request->input('status'),
+            'address' =>$request->input('address'), 
         ]);
 
         return redirect()->back()->with('message','Form filled successfully.');
@@ -67,7 +72,7 @@ class FormController extends Controller
     {
         Plan::create([
             'plan_type'=> $request->input('plan_type'),
-            'planner_id'=>1,
+            'tourist_id'=>1,
             'location_id'=>1,
             'transport_id'=>1,
             'total_no_of_participants'=>$request->input('total_no_of_participants'),
@@ -75,7 +80,9 @@ class FormController extends Controller
             'destination_to'=>$request->input('destination_to'),
             'date_from'=>$request->input('date_from'),
             'date_to'=>$request->input('date_to'),
-            'remarks'=>$request->input('remarks')
+            'remarks'=>$request->input('remarks'),
+            'token_money'=>1500,
+            'approximate_budget'=>3500
         ]);
 
         return redirect()->back();

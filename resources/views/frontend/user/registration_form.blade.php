@@ -1,11 +1,12 @@
-<!-- @extends('backend.master')
+@extends('frontend.master')
 @section('main')
+
 <div class="section__content section__content--p30">
     <div class="container-fluid">
       <div class="row">
           <div class="col-lg-12">
             <div class="table-responsive table--no-card m-b-30">
-            <h1>Tour registration form</h1>
+            <h1>User Registration Form</h1>
 
               @if(session()->has('message'))
                <p class= "alert alert-success">{{session()->get('message')}}</p>
@@ -16,42 +17,42 @@
             @csrf
               <div class="form-group">
                 <label for="exampleInputName">Enter Name</label>
-                <input value="{{$cotourist->name}}" name="name" type="text" value="{{old('name')}}"  class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Name">
+                <input name="name" type="text" value="{{old('name')}}"  class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Name">
               @error('name') <span class="text-danger">{{$message}}</span> @enderror
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail">Enter Email</label>
-                <input value="{{$cotourist->email}}"name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
                 @error('email') <span class="text-danger">{{$message}}</span> @enderror
               </div>
-              <div class="form-group">`
+              <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input value="{{$cotourist->password}}" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
 
-              <div class="form-group">`
+              <div class="form-group">
                 <label for="phone_number">Phone Number</label>
-                <input value="{{$cotourist->phone_number}}" name="phone_number" type="phone_number" class="form-control" id="phone_number" placeholder="phone_number">
+                <input name="phone_number" type="phone_number" class="form-control" id="phone_number" placeholder="phone_number">
               </div>
 
-              <div class="form-group">`
+              <div class="form-group">
                 <label for="n_id">N ID</label>
-                <input value="{{$cotourist->n_id}}" name="n_id" type="n_id" class="form-control" id="n_id" placeholder="n_id">
+                <input name="n_id" type="n_id" class="form-control" id="n_id" placeholder="n_id">
               </div>
 
-              <div class="form-group">`
+              <div class="form-group">
                 <label for="role">Role</label>
-                <input value="{{$cotourist->role}}" name="role" type="role" class="form-control" id="role" placeholder="role">
+                <input name="role" type="role" class="form-control" id="role" placeholder="role">
               </div>
 
-              <div class="form-group">`
+              <div class="form-group">
                 <label for="status">Status</label>
-                <input value="{{$cotourist->status}}" name="status" type="text" class="form-control" id="status" placeholder="status">
+                <input name="status" type="text" class="form-control" id="status" placeholder="status">
               </div>
 
-              <div class="form-group">`
+              <div class="form-group">
                 <label for="address">Address</label>
-                <input value="{{$cotourist->address}}" name="address" type="text" class="form-control" id="address" placeholder="address">
+                <input name="address" type="text" class="form-control" id="address" placeholder="address">
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -63,5 +64,5 @@
          </div>
       </div>    
    </div> 
-  </div>    
-@stop -->
+  </div>
+@stop    

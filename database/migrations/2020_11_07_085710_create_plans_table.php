@@ -15,7 +15,7 @@ class CreatePlansTable extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
-            $table->string('planner_id');
+            $table->string('tourist_id');
             $table->string('plan_type');
             $table->string('total_no_of_participants');
             $table->string('location_id');
@@ -25,6 +25,8 @@ class CreatePlansTable extends Migration
             $table->string('date_from');
             $table->string('date_to');
             $table->string('remarks');
+            $table->string('token_money');
+            $table->string('approximate_budget');
             $table->timestamps();
         });
     }

@@ -31,19 +31,18 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Planner</span>
+                    <span>Users</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Planners</h6>
-                        <a class="collapse-item" href="cards.html">View Planner</a>
-                        <a class="collapse-item" href="buttons.html">Add Planner</a>
-                        <a class="collapse-item" href="cards.html">Delete Planner</a>
+                        <h6 class="collapse-header">Users</h6>
+                        <a class="collapse-item" href="{{route('user.list')}}">View Users</a>
+                        
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Co-tourists Collapse Menu -->
+            <!-- Nav Item - Co-tourists Collapse Menu
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCo-Tourist"
                     aria-expanded="true" aria-controls="collapseCo-Tourist">
@@ -54,11 +53,11 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Co-tourists</h6>
-                        <a class="collapse-item" href="Co-tourists-color.html">View List</a>
+                        <a class="collapse-item" href="">View List</a>
                         
                     </div>
                 </div>
-            </li>
+            </li> -->
 
 <!-- Nav Item - Plan Collapse Menu -->
 <li class="nav-item">
@@ -111,7 +110,7 @@
                         <h6 class="collapse-header">Custom Location</h6>
                         
                         <a class="collapse-item" href="Location-color.html">View Location List</a>
-                        
+                        <a class="collapse-item" href="Location-color.html">Add Location</a>
                         
                     </div>
                 </div>
@@ -151,7 +150,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('form.table')}}">
+                <a class="nav-link" href="">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
@@ -167,7 +166,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('dashboard.form')}}">
                     <i class="fas fa-fw fa-form"></i>
-                    <span>Form</span></a>
+                    <span>Report</span></a>
             </li>
 
             <!-- Divider -->
