@@ -7,7 +7,7 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
-      <th scope="col">Password</th>
+      
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -18,7 +18,7 @@
       <th scope="row">{{$data->id}}</th>
       <td>{{$data->name}}</td>
       <td>{{$data->email}}</td>
-      <td>{{$data->password}}</td>
+      
       <td>
                     <a class="btn btn-warning" href="">Edit</a>
                     <a class="btn btn-danger" href="{{route('user.delete',$data->id)}}">Delete</a>

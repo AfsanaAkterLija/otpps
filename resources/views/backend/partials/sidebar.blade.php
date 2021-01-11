@@ -70,9 +70,11 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Plan</h6>
-                        <a class="collapse-item" href="{{route('plan.insertplan')}}">>Insert Plan</a>
-                        <a class="collapse-item" href="{{route('plan.list')}}">Plan List</a>
-                        <a class="collapse-item" href="Plan-color.html">Feedback</a>
+                        
+                        <a class="collapse-item" href="{{route('plan.post.list')}}">Post Plan List</a>
+                        <a class="collapse-item" href="{{route('approve.plan.list')}}">Approved Plan List</a>
+                        
+                        
                         
                     </div>
                 </div>
@@ -90,8 +92,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Transports</h6>
                         
-                        <a class="collapse-item" href="Transports-color.html">View Transports List</a>
-                        
+                        <a class="collapse-item" href="{{route('transport.form')}}">Add Transport</a>
+                        <a class="collapse-item" href="{{route('transport.list')}}">View Transports List</a>
+                        <a class="collapse-item" href="{{route('category.form')}}">Add Transport Category</a>
                         
                     </div>
                 </div>
@@ -102,15 +105,15 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLocation"
                     aria-expanded="true" aria-controls="collapseLocation">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Location</span>
+                    <span>Locations</span>
                 </a>
-                <div id="collapseTLocation" class="collapse" aria-labelledby="headingLocation"
+                <div id="collapseLocation" class="collapse" aria-labelledby="headingLocation"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Location</h6>
                         
-                        <a class="collapse-item" href="Location-color.html">View Location List</a>
-                        <a class="collapse-item" href="Location-color.html">Add Location</a>
+                        <a class="collapse-item" href="{{route('location.list')}}">View Location List</a>
+                        <a class="collapse-item" href="{{route('location.form')}}">Add Location</a>
                         
                     </div>
                 </div>

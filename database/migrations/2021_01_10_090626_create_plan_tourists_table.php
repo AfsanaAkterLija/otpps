@@ -15,13 +15,16 @@ class CreatePlanTouristsTable extends Migration
     {
         Schema::create('plan_tourists', function (Blueprint $table) {
             $table->id();
-            $table->string('tourist_id');
-            $table->string('plan_id');
-            $table->string('status');
-            $table->string('payment_status');
+            $table->foreignId('plan_id');
+            $table->foreignId('tourist_id');
+            $table->string('status')->default('pending');
+            $table->string('transaction_id');
+            $table->string('payment_method');
             $table->string('paid_amount');
-        });    
-        
+            $table->string('transaction_number');
+            $table->text('receipt')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

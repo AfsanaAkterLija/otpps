@@ -15,11 +15,12 @@ class CreateTransportsTable extends Migration
     {
         Schema::create('transports', function (Blueprint $table) {
             $table->id();
-            $table->string('vehicle_type',100);
-            $table->string('class',100);
-            $table->string('company',100);
-            $table->string('status',100);
-            $table->string('total_no_of_seat',100);
+            $table->string('vehicle_type');
+            $table->string('vehicle_name')->nullable();
+            $table->string('class');
+            $table->string('company');
+            $table->string('status');
+            $table->string('total_no_of_seat');
             
             $table->timestamps();
         });

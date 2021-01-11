@@ -4,91 +4,82 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Plan;
+use App\Models\PlanTourist;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
-    public function form()
+    public function registration(Request $request)
     { 
 
-       ;
-        return view('frontend.user.registration_form');
-        
-    }
-    public function submit(Request $request)
-    {
         $request->validate([
             'name'=>'required',
+            'email'=>'required|email|unique:users',
             'password'=>'required',
-            'email'=>'required'
-        ]);
-        User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' =>$request->input('password'),
-            'phone_number' =>$request->input('phone_number'),
-            'n_id' =>$request->input('n_id'),
-            'role' =>$request->input('role'),
-            'status' =>$request->input('status'),
-            'address' =>$request->input('address'), 
+            'phone_number'=>'required',
+            'n_id'=>'required|unique:users',
+            'address'=>'required',
+            'gender'=>'required',
+            'status'=>'required'
+ 
         ]);
 
-        return redirect()->back()->with('message','Form filled successfully.');
+
+        User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>bcrypt($request->password),
+            'n_id'=>$request->n_id,
+            'gender'=>$request->gender,
+            'status'=>$request->status,
+            'role'=>'user'
+
+
+        ]);
+        return redirect()->back()->with('message',' Registration Successful.');
+      
         
     }
-    public function list()
-    {
-        $list=User::paginate(5);
-        return view('backend.user.user_list',compact('list'));
-    }
 
-    public function user_delete($id)
-    {
-        $user=User::find($id);
-        if(!empty($user))
-        {
-            $user->delete();
-            $message="user deleted Successfully";
-        }else{
-            $message="No data found.";
-        }
-         return redirect()->back()->with('message',$message);
-    }
-
-    public function user_view($id)
-    {
-        $user=User::find($id);
-            return view('backend.user.view_user_info',compact('user'));
-    }
-    
-    
-    public function login()
-    {
-        return view('frontend.user.login');
-    }
-
-    public function loginProcess(Request $request)
+    public function login(Request $request)
     {
         $request->validate([
-            'email'=>'required',
+            'email'=>'required|email',
             'password'=>'required'
-         ]);
+             
+        ]);
+        $login_info=$request->except(['_token']);
+      
 
-         $login_info=$request->except(['_token']);
-
-         if (Auth::attempt($login_info)) {
-            $request->session()->regenerate();
-            return redirect()->route('dashboard');
+         if (auth()->attempt($login_info)) {
+            return redirect()->route('home');
         }else
         {
             return redirect()->back()->withErrors('Invalid Credentials');
         }
- 
+    
     }
+
     public function logout()
+
     {
-        Auth::logout();
-        return redirect()-> route('login');
+
+        auth()->logout();
+        
+        return redirect()->route('home');
+
     }
+
+    public function user_profile()
+    {
+        
+        $tourist = auth()->user();
+        $created_plan = Plan::where('tourist_id','=',$tourist->id)->get();
+        $joined_plan = PlanTourist::where('tourist_id','=',$tourist->id)->get();
+
+        return view('frontend.user.my_profile',compact('tourist','created_plan','joined_plan'));
+    }
+    
 }

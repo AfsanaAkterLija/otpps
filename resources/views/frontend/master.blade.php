@@ -13,7 +13,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Multipager Template- Travelic </title>
+    <title>Online Tour Planner Platform System </title>
     <!--REQUIRED STYLE SHEETS-->
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="{{asset('/frontend/assets/css/bootstrap.css')}}" rel="stylesheet" />
@@ -36,7 +36,8 @@
      <!-- NAV SECTION -->
      @include('frontend.partials.navbar')
      <!--END NAV SECTION -->
-    
+
+
     <!--HOME SECTION-->
      @yield('main')
     <!--END HOME SECTION-->

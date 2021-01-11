@@ -15,11 +15,12 @@ class CreatePlansTable extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
-            $table->string('tourist_id');
+            $table->integer('tourist_id');
             $table->string('plan_type');
             $table->string('total_no_of_participants');
-            $table->string('location_id');
-            $table->string('transport_id');
+            $table->string('no_of_joined_people');
+            $table->foreignId('location_id');
+            $table->foreignId('transport_id');
             $table->string('destination_from');
             $table->string('destination_to');
             $table->string('date_from');
@@ -27,6 +28,9 @@ class CreatePlansTable extends Migration
             $table->string('remarks');
             $table->string('token_money');
             $table->string('approximate_budget');
+            $table->string('transaction_number');
+            $table->string('is_approved');
+
             $table->timestamps();
         });
     }
