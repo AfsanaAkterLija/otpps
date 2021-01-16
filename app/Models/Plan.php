@@ -22,7 +22,11 @@ class Plan extends Model
 
     public function transportnamerelation()
     {
-        return $this->belongsTo(Transport::class,'transport_id','id');
+        return $this->belongsTo(Transport::class,'transport_id','id')->withDefault([
+            'vehicle_type' => 'None'
+        ]);;
         
     }
+
+   
 }

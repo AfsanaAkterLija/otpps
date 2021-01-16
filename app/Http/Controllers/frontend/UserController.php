@@ -18,27 +18,39 @@ class UserController extends Controller
             'name'=>'required',
             'email'=>'required|email|unique:users',
             'password'=>'required',
-            'phone_number'=>'required',
+            'phone_number'=>'required|min:11|max:16',
             'n_id'=>'required|unique:users',
             'address'=>'required',
             'gender'=>'required',
-            'status'=>'required'
+           
  
         ]);
 
+        $photo = '';
+
+        $fileName = $request->hasFile('image');
+        if($fileName){
+            $photo = uniqid('photo_',true) . '.' . $request->file('image')->getClientOriginalName();
+          
+            $request->file('image')->move(public_path('/uploads/user'),$photo);
+        }
+       
 
         User::create([
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>bcrypt($request->password),
             'n_id'=>$request->n_id,
+            'phone_number' =>$request->input('phone_number'),
             'gender'=>$request->gender,
             'status'=>$request->status,
-            'role'=>'user'
+            'role'=>'user',
+            'address'=>$request->address,
+            'image' => $photo
 
 
         ]);
-        return redirect()->back()->with('message',' Registration Successful.');
+        return redirect()->back()->with('msg',' Registration Successful.');
       
         
     }
@@ -83,3 +95,6 @@ class UserController extends Controller
     }
     
 }
+
+
+// <img src="{{asset('/uploads/user'.auth()->user()->image}}" alt="">

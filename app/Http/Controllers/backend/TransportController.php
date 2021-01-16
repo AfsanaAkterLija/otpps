@@ -60,4 +60,55 @@ class TransportController extends Controller
         
     // }
 
+
+    public function transport_delete($id)
+    {
+        $transportdelete=Transport::find($id);
+        if(!empty($transportdelete))
+        {
+            $transportdelete->delete();
+            $msg="Transport deleted Successfully";
+        }else{
+            $msg="No data found.";
+        }
+         return redirect()->back()->with('message',$msg);
+    }
+
+    public function edit_transport($id)
+    {
+        
+        $edittransport=Transport::find($id);
+        return view('backend.user.edit_transport_',compact('edittransport'));
+
+    }
+
+
+    public function update_transport(Request $request, $id)
+    {
+        $request->validate([
+
+            'vehicle_type'=>'required',
+            'vehicle_name'=>'required',
+            'class'=>'required',
+            'company'=>'required',
+            'status'=>'required',
+            'total_no_of_seat'=>'required'
+        ]);
+    
+
+    Transport::find($id)->update([
+
+            'vehicle_type'=>$request->input('vehicle_type'),
+            'vehicle_name'=>$request->input('vehicle_name'),
+            'class'=>$request->input('class'),
+            'company'=>$request->input('company'),
+            'status'=>$request->input('status'),
+            'total_no_of_seat'=>$request->input('total_no_of_seat'),
+        ]);
+
+    return redirect()->back()->with('msg','Transport Added Successfully');
+
+    }
+
+
 }

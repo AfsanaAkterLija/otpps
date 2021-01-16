@@ -28,9 +28,8 @@
       <td>{{$data->contact_person_phn_no}}</td>
       
         <td>
-            <a class="btn btn-warning" href="">Edit</a>
-            <a class="btn btn-danger" href="">Delete</a>
-            <a class="btn btn-info" href="">View</a>
+            <a class="btn btn-warning" href="{{route('location.edit',$data->id)}}">Edit</a>
+            <a class="btn btn-danger" href="{{route('location.delete',$data->id)}}">Delete</a>
         </td>
 
   </tr>

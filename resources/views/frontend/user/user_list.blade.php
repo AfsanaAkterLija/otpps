@@ -20,7 +20,6 @@
       <td>{{$data->email}}</td>
       
       <td>
-                    <a class="btn btn-warning" href="">Edit</a>
                     <a class="btn btn-danger" href="{{route('user.delete',$data->id)}}">Delete</a>
                     <a class="btn btn-info" href="{{route('user.view',$data->id)}}">View</a>
                 </td>

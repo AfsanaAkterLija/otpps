@@ -17,12 +17,12 @@
   </div>
   <div class="form-group">
     <label for="opening_time_from">Opening Time From</label>
-    <input name="opening_time_from"type="text" class="form-control" id="opening_time_from" placeholder="Enter Opening Time From">
+    <input name="opening_time_from"type="time" class="form-control" id="opening_time_from" placeholder="Enter Opening Time From">
   </div>
 
   <div class="form-group">
     <label for="opening_time_to">Opening Time To</label>
-    <input name="opening_time_to"type="text" class="form-control" id="opening_time_to" placeholder="Enter Opening Time To">
+    <input name="opening_time_to"type="time" class="form-control" id="opening_time_to" placeholder="Enter Opening Time To">
   </div>
 
   <div class="form-group">
@@ -37,7 +37,7 @@
 
   <div class="form-group">
     <label for="contact_person_phn_no">Contact Person Phone No</label>
-    <input name="contact_person_phn_no"type="text" class="form-control" id="contact_person_phn_no" placeholder="Enter Contact Person Phone No">
+    <input name="contact_person_phn_no"type="number" class="form-control" id="contact_person_phn_no" placeholder="Enter Contact Person Phone No">
   </div>
 
   <div class="form-check">

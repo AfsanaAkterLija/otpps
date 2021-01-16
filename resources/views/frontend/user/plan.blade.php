@@ -11,7 +11,7 @@
 
  <div class="form-group">
     <label for="plan_type">Package Type</label>
-    <input name="plan_type" type="name" class="form-control" id="plan_type" aria-describedby="emailHelp" placeholder="Enter Package Type">
+    <input name="plan_type" type="text" class="form-control" id="plan_type" aria-describedby="emailHelp" placeholder="Enter Package Type">
   </div>
 
 
@@ -41,7 +41,7 @@
 
   <div class="form-group">
     <label for="total_no_of_participants">Total no of participants</label>
-    <input name="total_no_of_participants"type="text" class="form-control" id="total_no_of_participants" placeholder="Total no of participants">
+    <input name="total_no_of_participants"type="number" class="form-control" id="total_no_of_participants" placeholder="Total no of participants">
   </div>
 
   
@@ -58,12 +58,12 @@
 
   <div class="form-group">
     <label for="date_from">Date from</label>
-    <input name="date_from"type="text" class="form-control" id="date_from" placeholder="Date from">
+    <input name="date_from" type="date" type="date" name="date" value="{{date('Y-m-d')}}"  min="{{date('Y-m-d')}}" class="form-control" id="date_from" placeholder="Date from">
   </div>
 
   <div class="form-group">
     <label for="date_to">Date to</label>
-    <input name="date_to"type="text" class="form-control" id="date_to" placeholder="Date to">
+    <input name="date_to"type="date" value="{{date('Y-m-d')}}"  min="{{date('Y-m-d')}}" class="form-control" id="date_to" placeholder="Date to">
   </div>
 
   <div class="form-group">
@@ -73,12 +73,12 @@
 
   <div class="form-group">
     <label for="token_money">Token Money</label>
-    <input name="token_money"type="text" class="form-control" id="token_money" placeholder="Enter Token Money">
+    <input name="token_money"type="number" oninput="this.value=Math.abs(this.value)" min="1" class="form-control" id="token_money" placeholder="Enter Token Money">
   </div>
 
   <div class="form-group">
     <label for="approximate_budget">Approximate Budget</label>
-    <input name="approximate_budget"type="text" class="form-control" id="approximate_budget" placeholder="Enter Approximate Budget">
+    <input name="approximate_budget" type="number" oninput="this.value=Math.abs(this.value)" min="1" class="form-control" id="approximate_budget" placeholder="Enter Approximate Budget">
   </div>
 
   <div class="form-group">
@@ -86,10 +86,7 @@
     <input name="transaction_number"type="text" class="form-control" id="transaction_number" placeholder="Enter Transaction Number">
   </div>
 
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 

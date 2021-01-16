@@ -31,6 +31,16 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade active in" id="personalinfo" role="tabpanel" aria-labelledby="home-tab">
   <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+  <div style="display:flex">
+    <span style="font-weight:bold">User Image:</span>
+    <div>
+    <img src="{{asset('/uploads/user/'.auth()->user()->image)}}" alt="" style="
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+">
+    </div>
+    </div>
   <div class="form-group">
         <p>
         <label for="">User Name:</label>{{$tourist->name}}
@@ -41,23 +51,31 @@
         </p>
 
         <p>
-        <label for="">User n_id:</label> {{$tourist->n_id}}
+        <label for="">User NID:</label> {{$tourist->n_id}}
+        </p>
+        
+        <p>
+        <label for="">User Phone Number:</label> {{$tourist->phone_number}}
         </p>
 
         <p>
-        <label for="">User role:</label>{{$tourist->role}}
+        <label for="">User Role:</label>{{$tourist->role}}
         </p>
 
         <p>
         <label for="">User status:</label>{{$tourist->status}}
         </p>
+        
+        <p>
+        <label for="">User status:</label>{{$tourist->gender}}
+        </p>
 
         <p>
         <label for="">User address:</label>{{$tourist->address}}
         </p>
-
-
+      
     </div>
+   
  </main>
 </div>
   <div class="tab-pane fade" id="createdplan" role="tabpanel" aria-labelledby="profile-tab">
@@ -79,6 +97,7 @@
                         <th scope="col">Token Money</th>
                         <th scope="col">Approximate Budget</th>
                         <th scope="col">Transaction Number</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -100,10 +119,17 @@
                                 <td>{{$data->token_money}}</td>
                                 <td>{{$data->approximate_budget}}</td>
                                 <td>{{$data->transaction_number}}</td>
+                                <td>{{$data->is_approved}}</td>
+
+                                
 
                                 <td>
-                                    
-                                <a class="btn btn-warning" href="{{route('tourist.list.per.plan')}}">Tourists List</a>
+                                @if($data->is_approved=='not approved')
+                                <a class="btn btn-warning" href="{{route('plan.edit',$data->id)}}">Edit</a>
+                                @endif
+                                
+
+                                <a class="btn btn-success" href="{{route('tourist.list.per.plan')}}">Tourists List</a>
                                 </td>
                                 
 
@@ -124,7 +150,6 @@
       <th scope="col">Status</th>
       <th scope="col">Transaction Id</th>
       <th scope="col">Payment Method</th>
-      <th scope="col">Payment Status</th>
       <th scope="col">Paid Amount</th>
       <th scope="col">Transaction Number</th>
       <th scope="col">Receipt</th>
@@ -141,10 +166,13 @@
       <td>{{$data->status}}</td>
       <td>{{$data->transaction_id}}</td>
       <td>{{$data->payment_method}}</td>
-      <td>{{$data->payment_status}}</td>
       <td>{{$data->paid_amount}}</td>
       <td>{{$data->transaction_number}}</td>
-      <td>{{$data->receipt}}</td>
+      <td>
+      @if($data->status=='approved')
+      <a class="btn btn-warning" href="{{route('joined.tourist.perplan.receipt',$data->id)}}">Memo</a>
+      @endif
+      </td>
       
 
   </tr>

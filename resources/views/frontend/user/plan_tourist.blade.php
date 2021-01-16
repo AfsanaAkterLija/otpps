@@ -1,6 +1,16 @@
 @extends('frontend.master')
 @section('main')
 
+@if(session()->has('msg'))
+    <p class="alert alert-success" style="margin: 5% 0%;">{{session()->get('msg')}}</p>
+@endif
+
+@if($errors->any())
+    @foreach($errors->all() as $er)
+        <p class="alert alert-danger">{{$er}}</p>
+    @endforeach
+@endif
+
 <div class="section__content section__content--p30">
     <div class="container-fluid">
       <div class="row">
@@ -22,15 +32,27 @@
                 <input name="transaction_id" type="transaction_id" class="form-control" id="transaction_id" aria-describedby="emailHelp" placeholder="Enter Transaction Id">
                 @error('transaction_id') <span class="text-danger">{{$message}}</span> @enderror
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="payment_method">Payment Method</label>
                 <input name="payment_method" type="payment_method" class="form-control" id="payment_method" placeholder="Payment Method">
-              </div>
+              </div> -->
+
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label for="payment_method" class="input-group-text" for="inputGroupSelect01">Payment Method</label>
+                  </div>
+                  <select name="payment_method" type="payment_method"  class="custom-select" id="payment_method">
+                    <option selected>Choose..</option>
+                    <option selected>Bkash</option>
+                    <option value="1">Nogod</option>
+                    <option value="2">Rocket</option>
+                  </select>
+               </div>
 
 
               <div class="form-group">
                 <label for="paid_amount">Paid Amount</label>
-                <input name="paid_amount" type="paid_amount" class="form-control" id="n_id" placeholder="Paid Amount">
+                <input disabled value="{{$plandetail->token_money}}" name="paid_amount" type="number" class="form-control" id="n_id" placeholder="Paid Amount">
               </div>
 
               <div class="form-group">

@@ -18,7 +18,6 @@
                    <!-- <button type="button" href="#package-section" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Packages
                         </button> -->
-                    <a class="btn btn-success" href="Gallery.html">Gallery</a>
                 
                     
                     @guest
@@ -33,8 +32,12 @@
                         <a class="btn btn-success" href="{{route('plan.insertplan')}}">Add a Package</a>
                         
                         <a class="btn btn-success" href="{{route('user.profile')}}">My Profile</a>
+                        
+                        <a class="btn btn-success" href="{{route('user.feedback')}}">Feedback</a>
 
-                        <a class="btn btn-success" href="{{route('user.logout')}}">Signout</a>                   
+
+                        <a class="btn btn-success" href="{{route('user.logout')}}">Signout</a>
+                        <a>{{auth()->user()->name}}</a>                    
                     @endauth
 
 
@@ -84,7 +87,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Login/Sign Up</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Sign In/Sign Up</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -93,7 +96,7 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                           aria-controls="home" aria-selected="true">Login</a>
+                           aria-controls="home" aria-selected="true">Sign In</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
@@ -146,18 +149,15 @@
 
                             <div class="form-group">
                                 <label for="phone_number">Phone Number</label>
-                                <input name="phone_number" type="phone_number" class="form-control" id="phone_number" placeholder="phone_number">
+                                <input name="phone_number" type="number" class="form-control" id="phone_number" placeholder="Enter Phone Number">
                             </div>
 
                             <div class="form-group">
                                 <label for="n_id">N ID</label>
-                                <input name="n_id" type="n_id" class="form-control" id="n_id" placeholder="n_id">
+                                <input name="n_id" type="number" class="form-control" id="n_id" placeholder="Enter NID">
                             </div>
 
-                            <div class="form-group">
-                                <label for="status">Status</label>
-                                <input name="status" type="text" class="form-control" id="status" placeholder="status">
-                            </div>
+                           
 
                             <div class="form-group">
                                 <label for="address">Address</label>

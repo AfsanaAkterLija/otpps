@@ -1,6 +1,16 @@
 @extends('backend.master')
 @section('main')
 
+@if(session()->has('msg'))
+    <p class="alert alert-success" style="margin: 5% 0%;">{{session()->get('msg')}}</p>
+@endif
+
+@if($errors->any())
+    @foreach($errors->all() as $er)
+        <p class="alert alert-danger">{{$er}}</p>
+    @endforeach
+@endif
+
 <table class="table">
   <thead>
     <tr>
@@ -26,9 +36,8 @@
       <td>{{$data->total_no_of_seat}}</td>
 
       <td>
-        <a class="btn btn-warning" href="">Edit</a>
-        <a class="btn btn-danger" href="">Delete</a>
-        <a class="btn btn-info" href="">View</a>
+        <a class="btn btn-warning" href="{{route('transport.edit',$data->id)}}">Edit</a>
+        <a class="btn btn-danger" href="{{route('transport.delete',$data->id)}}">Delete</a>
       </td>
       
 

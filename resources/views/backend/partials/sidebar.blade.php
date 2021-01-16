@@ -94,7 +94,7 @@
                         
                         <a class="collapse-item" href="{{route('transport.form')}}">Add Transport</a>
                         <a class="collapse-item" href="{{route('transport.list')}}">View Transports List</a>
-                        <a class="collapse-item" href="{{route('category.form')}}">Add Transport Category</a>
+                        <!-- <a class="collapse-item" href="{{route('category.form')}}">Add Transport Category</a> -->
                         
                     </div>
                 </div>
@@ -129,7 +129,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -147,23 +147,15 @@
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
 
             
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
+            
 
              <!-- Nav Item - Form -->
-             <li class="nav-item">
-                <a class="nav-link" href="{{route('dashboard.form')}}">
-                    <i class="fas fa-fw fa-form"></i>
-                    <span>Form</span></a>
-            </li>
+             
 
             <!-- Nav Item - Report -->
             <li class="nav-item">
@@ -181,10 +173,10 @@
             </div>
 
             <!-- Sidebar Message -->
-            <div class="sidebar-card">
+            <!-- <div class="sidebar-card">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
+            </div> -->
 
         </ul>

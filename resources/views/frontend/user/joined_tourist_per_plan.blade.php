@@ -13,7 +13,6 @@
       <th scope="col">Paid Amount</th>
       <th scope="col">Transaction Number</th>
       <th scope="col">Action</th>
-      <th scope="col">Receipt</th>
      
     </tr>
   </thead>
@@ -40,7 +39,6 @@
       <a class="btn btn-success" href="">Approved</a>
       @endif
       </td>
-      <td>{{$data->receipt}}</td>
       
 
   </tr>

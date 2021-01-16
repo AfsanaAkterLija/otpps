@@ -26,8 +26,9 @@
         </p>
 
         <p>
-        <label for="">No. of Joined Participants:</label>{{$plandetail->no_of_joined_people ??  0 }}
+        <label for="">No. of Joined Participants:</label>{{$planCount}}
         </p>
+        
 
         <p>
         <label for="">Destination From:</label>{{$plandetail->destination_from}}

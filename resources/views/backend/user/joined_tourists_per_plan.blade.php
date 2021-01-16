@@ -10,10 +10,8 @@
       <th scope="col">Status</th>
       <th scope="col">Transaction Id</th>
       <th scope="col">Payment Method</th>
-      <th scope="col">Payment Status</th>
       <th scope="col">Paid Amount</th>
       <th scope="col">Transaction Number</th>
-      <th scope="col">Receipt</th>
      
     </tr>
   </thead>
@@ -23,14 +21,12 @@
     <tr>
     <th scope="row">{{$data->id}}</th>
       <td>{{$data->plan_id}}</td>
-      <td>{{$data->tourist_id}}</td>
+      <td>{{$data->touristnamerelation->name}}</td>
       <td>{{$data->status}}</td>
       <td>{{$data->transaction_id}}</td>
       <td>{{$data->payment_method}}</td>
-      <td>{{$data->payment_status}}</td>
       <td>{{$data->paid_amount}}</td>
       <td>{{$data->transaction_number}}</td>
-      <td>{{$data->receipt}}</td>
       
 
   </tr>

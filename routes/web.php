@@ -36,9 +36,9 @@ Route::get('/home','frontend\TemplateController@index')->name('home');
 
 Route::get('/userform','backend\UserController@form')->name('dashboard.form');
 Route::post('/userform/submit','backend\UserController@submit')->name('form.submit');
-Route::get('/user/list','backend\UserController@list')->name('user.list');
-Route::get('/user/delete/{id}','backend\UserController@user_delete')->name('user.delete');
-Route::get('/user/view/{id}','backend\UserController@user_view')->name('user.view');
+Route::get('/user/list','backend\UserController@list')->name('user.list')->middleware('auth');
+Route::get('/user/delete/{id}','backend\UserController@user_delete')->name('user.delete')->middleware('auth');
+Route::get('/user/view/{id}','backend\UserController@user_view')->name('user.view')->middleware('auth');
 
 
 Route::get('/template','backend\TemplateController@index')->name('dashboard')->middleware('auth');
@@ -69,32 +69,49 @@ Route::get('/user/logout','frontend\UserController@logout')->name('user.logout')
 
 // transport 
 
-Route::get('/transport/form','backend\TransportController@transport')->name('transport.form');
-Route::post('/transport/submit','backend\TransportController@transport_submit')->name('transport.submit');
-Route::get('/transport/list','backend\TransportController@transport_list')->name('transport.list');
+Route::get('/transport/form','backend\TransportController@transport')->name('transport.form')->middleware('auth');
+Route::post('/transport/submit','backend\TransportController@transport_submit')->name('transport.submit')->middleware('auth');
+Route::get('/transport/list','backend\TransportController@transport_list')->name('transport.list')->middleware('auth');
+Route::get('/transport/delete/{id}','backend\TransportController@transport_delete')->name('transport.delete')->middleware('auth');
 
 
-Route::get('planes/approved/{id}','backend\PlanController@approved')->name('plan.approved');
+Route::get('planes/approved/{id}','backend\PlanController@approved')->name('plan.approved')->middleware('auth');
 
 // transport category
 
-Route::get('/transport/category','backend\TransportController@transport_category')->name('category.form');
-Route::get('/transport/category/submit','backend\TransportController@transport_category_submit')->name('category.submit');
+Route::get('/transport/category','backend\TransportController@transport_category')->name('category.form')->middleware('auth');
+Route::get('/transport/category/submit','backend\TransportController@transport_category_submit')->name('category.submit')->middleware('auth');
+Route::get('/transport/delete/{id}','backend\TransportController@transport_delete')->name('transport.delete')->middleware('auth');
+Route::get('/transport/edit/{id}','backend\TransportController@edit_transport')->name('transport.edit');
+Route::post('/transport/update/{id}','backend\TransportController@update_transport')->name('transport.update');
+
 
 
 // location
 
-Route::get('/location/form','backend\LocationController@location')->name('location.form');
-Route::post('/location/submit','backend\LocationController@location_submit')->name('location.submit');
-Route::get('/location/list','backend\LocationController@location_list')->name('location.list');
+Route::get('/location/form','backend\LocationController@location')->name('location.form')->middleware('auth');
+Route::post('/location/submit','backend\LocationController@location_submit')->name('location.submit')->middleware('auth');
+Route::get('/location/list','backend\LocationController@location_list')->name('location.list')->middleware('auth');
+Route::get('/location/delete/{id}','backend\LocationController@location_delete')->name('location.delete')->middleware('auth');
+Route::get('/location/edit/{id}','backend\LocationController@edit_location')->name('location.edit');
+Route::post('/location/update/{id}','backend\LocationController@update_location')->name('location.update');
 
 // Insert Plan or package
 
 Route::get('/plan','frontend\PlanController@plan')->name('plan.insertplan');
 Route::post('/plan/submit','frontend\PlanController@plansubmit')->name('plan.submit');
-Route::get('/plan/list','backend\PlanController@posted_plan_list')->name('plan.post.list');
-Route::get('/planes/approved/{id}','backend\PlanController@approved')->name('plan.approved');
-Route::get('/approve/plan/list','backend\PlanController@approve_plan_list')->name('approve.plan.list');
+Route::get('/plan/list','backend\PlanController@posted_plan_list')->name('plan.post.list')->middleware('auth');
+Route::get('/planes/approved/{id}','backend\PlanController@approved')->name('plan.approved')->middleware('auth');
+Route::get('/approve/plan/list','backend\PlanController@approve_plan_list')->name('approve.plan.list')->middleware('auth');
+Route::get('/posted/plan/list/view/{id}','backend\PlanController@view_posted_plan')->name('posted.plan.view')->middleware('auth');
+Route::get('/posted/plan/list/delete/{id}','backend\PlanController@delete_posted_plan')->name('posted.plan.delete')->middleware('auth');
+Route::get('/plan/edit/{id}','frontend\PlanController@edit_plan')->name('plan.edit');
+Route::put('/plan/update/{id}','frontend\PlanController@update_plan')->name('update.edit');
+
+Route::get('/approved/plan/list/view/{id}','backend\PlanController@view_approved_plan')->name('approved.plan.view')->middleware('auth');
+
+
+
 
 // Package access
 
@@ -105,11 +122,18 @@ Route::post('/plan/payment/submit/{id}','frontend\PlanController@payment_submit'
 
 // joined tourists list per package for backend
 
-Route::get('/tourist/list/perplan','backend\PlanController@tourist_list_per_plan')->name('tourist.list.per.plan');
+Route::get('/tourist/list/backend/perplan','backend\PlanController@tourist_list_per_plan')->name('backend.tourist.list.per.plan')->middleware('auth');
 
 // My Profile
 
 Route::get('/user/profile','frontend\UserController@user_profile')->name('user.profile');
+
 // joined tourists list per package for frontend(my profile)
-Route::get('/tourist/list/perplan','frontend\PlanController@tourist_list_per_plan')->name('tourist.list.per.plan');
+Route::get('/tourist/list/frontend/perplan','frontend\PlanController@tourist_list_per_plan')->name('tourist.list.per.plan');
 Route::get('/tourist/list/perplan/approve/{id}','frontend\PlanController@tourist_approve')->name('tourist.list.approve');
+Route::get('/tourist/list/perplan/receipt/{id}','frontend\PlanController@joined_tourist_receipt')->name('joined.tourist.perplan.receipt');
+
+// Feedback
+
+Route::get('/tourist/give/feedback','frontend\FeedbackController@give_feedback')->name('user.feedback');
+Route::post('/tourist/give/feedback/submit','frontend\FeedbackController@feedback_submit')->name('user.feedback.submit');

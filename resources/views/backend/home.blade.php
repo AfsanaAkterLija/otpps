@@ -1,6 +1,16 @@
 @extends('backend.master')
 @section('main')
 
+@if(session()->has('msg'))
+    <p class="alert alert-success" style="margin: 5% 0%;">{{session()->get('msg')}}</p>
+@endif
+
+@if($errors->any())
+    @foreach($errors->all() as $er)
+        <p class="alert alert-danger">{{$er}}</p>
+    @endforeach
+@endif
+                    
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
@@ -19,7 +29,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                Number Of Events</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$list}}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$listap}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -58,7 +68,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$list}}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$listpp}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -79,20 +89,6 @@
                      
                         
 
-                        <div class="col-lg-6 mb-4">
-
-                           
-                            <div class="card shadow mb-4">
-                                
-                                <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                                        custom components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classes.</p>
-                                </div>
-                            </div>
-
-                        </div>
+                        
                     </div>
 @stop

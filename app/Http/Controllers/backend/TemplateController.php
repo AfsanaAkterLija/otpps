@@ -11,10 +11,10 @@ class TemplateController extends Controller
 {
     public function index()
     {
-        $list=Plan::count();
+        $listap=Plan::where('is_approved','=','approved')->count();
         $list=PlanTourist::count();
-        $list=Plan::count();
-        return view('backend.home',compact('list'));
+        $listpp=Plan::where('is_approved','=','not approved')->count();
+        return view('backend.home',compact('listap','list','listpp'));
     }
     public function charts()
     {

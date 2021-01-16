@@ -12,7 +12,7 @@
                <p class= "alert alert-success">{{session()->get('message')}}</p>
              @endif
            
-            <form method="post" action="{{route('form.submit')}}">
+            <form method="post" action="{{route('form.submit')}}" enctype="multipart/form-data">
 
             @csrf
               <div class="form-group">
@@ -27,22 +27,24 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
               </div>
 
               <div class="form-group">
                 <label for="phone_number">Phone Number</label>
-                <input name="phone_number" type="phone_number" class="form-control" id="phone_number" placeholder="phone_number">
+                <input name="phone_number" type="number" class="form-control" id="phone_number" placeholder="Enter Phone Number">
               </div>
 
               <div class="form-group">
                 <label for="n_id">N ID</label>
-                <input name="n_id" type="n_id" class="form-control" id="n_id" placeholder="n_id">
+                <input name="n_id" type="n_id" class="form-control" id="n_id" placeholder="Enter NID">
               </div>
 
+              
+
               <div class="form-group">
-                <label for="role">Role</label>
-                <input name="role" type="role" class="form-control" id="role" placeholder="role">
+                <label for="gender">Gender</label>
+                <input name="gender" type="role" class="form-control" id="gender" placeholder="Enter Gender">
               </div>
 
               <div class="form-group">
@@ -53,6 +55,10 @@
               <div class="form-group">
                 <label for="address">Address</label>
                 <input name="address" type="text" class="form-control" id="address" placeholder="address">
+              </div>
+              <div class="form-group">
+                <label for="image">Image</label>
+                <input name="image" type="file" class="form-control" id="image" placeholder="choose a file">
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">

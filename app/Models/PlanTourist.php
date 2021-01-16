@@ -12,4 +12,11 @@ class PlanTourist extends Model
     {
         return $this->belongsTo(User::class,'tourist_id','id');
     }
+
+    public function plan()
+    {
+    return $this->hasOne(Plan::class,'id','plan_id');
+    }
+   
+    
 }

@@ -79,4 +79,34 @@ class PlanController extends Controller
         $list=PlanTourist::paginate(5);
         return view('backend.user.joined_tourists_per_plan',compact('list'));
     }
+
+    public function view_posted_plan($id)
+    {
+        $viewpostedplan= Plan::with('transportnamerelation')->find($id);
+    
+        return view('backend.user.view_posted_plan_list',compact('viewpostedplan'));
+    }
+
+    public function delete_posted_plan($id)
+    {
+        $deletepostedplan=Plan::find($id);
+        
+        
+        if(!empty($deletepostedplan))
+        {
+            $deletepostedplan->delete();
+            $msg="user deleted Successfully";
+        }else{
+            $msg="No data found.";
+        }
+         return redirect()->back()->with('message',$msg);
+    }
+    
+    public function view_approved_plan($id)
+    {
+        $viewapprovedplan= Plan::find($id);
+        return view('backend.user.view_approved_plan_list',compact('viewapprovedplan'));
+    }
+
+
 }
